@@ -1,0 +1,45 @@
+{
+  "referenceDate": "2026-05-25",
+  "groceryRotation": [
+    "Amit",
+    "Prashant",
+    "Abhishek"
+  ],
+  "dailyRotation": {
+    "monday": {
+      "garbage": "Amit",
+      "cook": "Amit + Prashant",
+      "dishes": "Abhishek"
+    },
+    "tuesday": {
+      "garbage": "Amit",
+      "cook": "Amit + Prashant",
+      "dishes": "Abhishek"
+    },
+    "wednesday": {
+      "garbage": "Prashant",
+      "cook": "Abhishek + Siddharth",
+      "dishes": "Amit"
+    },
+    "thursday": {
+      "garbage": "Prashant",
+      "cook": "Abhishek + Siddharth",
+      "dishes": "Amit"
+    },
+    "friday": {
+      "garbage": "Abhishek",
+      "cook": "Amit + Prashant",
+      "dishes": "Prashant"
+    },
+    "saturday": {
+      "garbage": "Abhishek",
+      "cook": "Amit + Prashant",
+      "dishes": "Prashant"
+    },
+    "sunday": {
+      "garbage": "Amit",
+      "cook": "Amit + Prashant",
+      "dishes": "Abhishek"
+    }
+  }
+}
