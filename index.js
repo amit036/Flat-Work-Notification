@@ -181,14 +181,30 @@ client.on('ready', async () => {
             dishes = todayTasks.dishes || 'None';
         }
 
-        return `📅 *[TESTING] FLAT WEEKLY WORK ROTATION* 📅\n` +
+        // Load quotes.json dynamically so changes are picked up on-the-fly
+        let quotes = ["⚡ _Teamwork makes the home work easy!_"];
+        const quotesPath = path.join(__dirname, 'quotes.json');
+        try {
+            if (fs.existsSync(quotesPath)) {
+                const rawQuotes = fs.readFileSync(quotesPath, 'utf8');
+                quotes = JSON.parse(rawQuotes);
+            }
+        } catch (error) {
+            console.error('[ERROR] Failed to load/parse quotes.json:', error);
+        }
+
+        const selectedQuote = (Array.isArray(quotes) && quotes.length > 0)
+            ? quotes[Math.floor(Math.random() * quotes.length)]
+            : "⚡ _Teamwork makes the home work easy!_";
+
+        return `📅 *WEEKLY WORK ROTATION* 📅\n` +
             `-----------------------------------\n` +
             `*Date:* ${dateStr} (${dayName})\n\n` +
             `🗑️ *Garbage Throw:* ${garbage}\n` +
             `👨‍🍳 *Dinner Cook (Team):* ${cook}\n` +
             `🧼 *Clean Dishes:* ${dishes}\n` +
             `🛒 *Groceries & Veggies (This Week):* ${groceryPerson}\n\n` +
-            `⚡ _Teamwork makes the home work easy!_`;
+            `${selectedQuote}`;
     };
 
     // Define function to send the message
