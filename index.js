@@ -40,6 +40,7 @@ http.createServer((req, res) => {
 
 // Initialize WhatsApp client with local authentication persistence
 const client = new Client({
+    authTimeoutMs: 0, // Disable auth timeout to accommodate slow VM CPU during first-time sync
     authStrategy: new LocalAuth({
         clientId: 'flat-messager',
         dataPath: path.join(__dirname, '.wwebjs_auth')
